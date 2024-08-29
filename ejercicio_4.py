@@ -4,6 +4,12 @@ disposición cada uno con sus características y coste de renta. La
 empresa periódicamente registra los nuevos vehículos que ingresan al
 lote para su posterior puesta en renta.
 """
+
+"""
+Se abordó esta solución debido a que como se necesita tanto guardar datos de autos nuevos por parte de la administracion
+y tambien por parte de los clientes se necesita registrar las rentas que estos mismos quieran, con los datos del auto
+rentado y los datos personales del cliente
+"""
 class Renta:
     def __init__(self, marcaAuto, modeloAuto, anioAuto, colorAuto, tipoMotorAuto, 
                  transmisionAuto, PrecioCompra, kilometrajeAuto, placaAuto, renta):
@@ -57,12 +63,15 @@ def registrarCliente():
     dui = input("Ingrese su DUI: ")
     return nombre, apellido, edad, dui
 
+#Esa funcion es la encargada de hacer la ejecución de los prints y los input llamandoloes, esto se hace acá
+#debido a la pregunta inicial si es de parte de la administracion o de parte del cliente
 
 def inicial():
     registrados = []
-    while True:
+    while True: #el while nos permite ingresar datos indefinidos
+
         tipo_usuario = input("¿Es usted un cliente (Ingrese C) o administrador (Ingrese A)? ").upper()
-        if tipo_usuario == "A":
+        if tipo_usuario == "A": #por lo mismo antes mencionado se hace evaluación mediante if 
             auto = registrarAuto()
             registrados.append(auto)
             auto.salidaAutosNuevos()
@@ -72,6 +81,8 @@ def inicial():
             else:
                 nombre, apellido, edad, dui = registrarCliente()
                 print("Autos disponibles:")
+                 #mediante el for y con un index accedemos dentro de los datos de los autos registrados por la administración y gracias a eso el cliente
+                #puede tener una lista ennumerada de datos de autos para escoger a la hora de rentar 
                 for index, auto in enumerate(registrados):
                     print(f"{index + 1}. {auto.marca} {auto.modelo} ({auto.anio}) - {auto.color}")
                 seleccionAuto = int(input("Ingrese el número del auto que desea alquilar: ")) - 1

@@ -7,6 +7,12 @@ En el caso que una persona ya tenga una consulta previa en lugar
 de tomar datos se le pasará a sala de esperas. Implementa esta
 problemática a tu código.
 """
+"""
+El consultorio necesita dos estados, uno registrado y en sala de espera, entonces decidimos 
+de mediante funciones, una clase y un llamatorio al final lograr la solucion de estos,
+asi mismo utilizamos una lista con un while para poder buscar a los pacientes apoyandonos
+de un metodo for
+"""
 
 class Consultorio:
     def __init__(self, nombre=""):
@@ -43,6 +49,8 @@ def registrar(paciente):
     paciente.fecha_consulta = input("Fecha de Consulta: ")
     print("Registro completado")
 
+#en esta funcion en el main agregamos la lista y posteriormente los metodos que nos ayudaran con la busqueda de
+#los pacientes
 def main():
     registrados = []
 
@@ -68,5 +76,6 @@ def main():
             registrados.append(nuevo_paciente)
             print(f"Paciente {nuevo_paciente.nombre} registrado exitosamente.")
 
+#Se hace el llamatorio al main si este cumple con la condición
 if __name__ == "__main__":
     main()
