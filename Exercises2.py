@@ -9,7 +9,7 @@ que devolución se dará una sanción"""
 prestamosActivos = []
 
 class Prestamo:
-    def _init_(self, usuario, entidad, identificador, titulo, fechaInicio, duracion):
+    def __init__(self, usuario, entidad, identificador, titulo, fechaInicio, duracion):
         self.usuario = usuario
         self.entidad = entidad
         self.identificador = identificador
