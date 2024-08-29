@@ -8,6 +8,9 @@
 #como el uso de la piscina o la cancha de golf, que tienen un costo
 #adicional. Implementa esta funcionalidad en tu programa
 
+"""He escogido esta forma de realizar el ejercicio ya que se me hizo de mayor facilidad y que mediante los if de la funcion obtener datos
+es una forma muy eficas y rapida para separar todos los datos segun el tipo de habitacion que el cliente desee adquirir"""
+
 class Hotel:
 
     def __init__(self, tipHab, precioHab, nombre, apellido, telefono, noches, extras):
@@ -21,7 +24,7 @@ class Hotel:
         self.numExtras = extras
         self.precioExtras = extras * self._extras
         self.ventaFinal = (noches * precioHab) + self.precioExtras
-
+#Funcion para mostrar los datos ingresados
     def mostrar_informacion(self):
         print(f"\n~~~~~~~~~~ INFORMACIÓN DE LA HABITACIÓN ~~~~~~~~~~")
         print(f"Nombre del cliente: {self.nombreCliente}")
@@ -33,7 +36,7 @@ class Hotel:
         print(f"Costo por servicio extra: ${self._extras}")
         print(f"Total a pagar: ${self.ventaFinal}")
 
-
+#Funcion con la que obtenemos los datos y que mediante el if identifica que tipo de habitacion adquirio el usuario, usando los valores pertinentes
 def obtenerDatos():
     habitacio = []
     print("BIENVENIDO, seleccione el tipo de habitación que desea: ")
@@ -74,7 +77,7 @@ def devolverDatos(habitacio):
     for habitacion in habitacio:
         habitacion.mostrar_informacion()
 
-
+#Con esto obtenemos los datos de un cliente y los devolvemos
 cliente = obtenerDatos()
 devolverDatos(cliente)
 
